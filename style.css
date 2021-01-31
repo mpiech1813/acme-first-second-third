@@ -1,0 +1,47 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#lists > div {
+  display: flex;
+  flex-direction: column;
+
+  width: 30%;
+  text-align: center;
+  border: 1px solid tomato;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+button {
+  background-color: tomato;
+  height: 3rem;
+  width: 90%;
+}
+
+#disabled {
+  background-color: white;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  border-bottom: 1px solid white;
+  padding: 1rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: tomato;
+}
