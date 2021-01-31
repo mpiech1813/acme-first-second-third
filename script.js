@@ -7,13 +7,19 @@ const users = [
   { id: 4, name: 'lusy', slot: 'third', selected: true },
 ];
 
+// populate the lists
+
 users.forEach(function (currentUser) {
   const userName = currentUser.name;
   const userSlot = currentUser.slot;
   const userSelectStatus = currentUser.selected;
   const currentUnorderedList = document.querySelector(`#${userSlot} > ul`);
+  // create new list items
   const newUser = document.createElement('li');
+  //add user name to each item
   newUser.innerHTML = `${userName}`;
+  // check the selec status
+  // do i need it?
   if (userSelectStatus) {
     newUser.className = 'selected';
   } else {
@@ -21,6 +27,7 @@ users.forEach(function (currentUser) {
   }
   currentUnorderedList.appendChild(newUser);
 });
+
 // select all unordered lists
 // write a function that will toggle the class = 'selected' on and off for each lsit item
 // add event listener to all unordered lists
@@ -36,6 +43,8 @@ function selectStatusToggle(event) {
     }
   }
 }
+
+// adds event listener to all of the ul's
 const allListItems = document
   .querySelectorAll('ul')
   .forEach(function (currentList) {
