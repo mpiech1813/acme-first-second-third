@@ -50,3 +50,17 @@ const allListItems = document
   .forEach(function (currentList) {
     return currentList.addEventListener('click', selectStatusToggle);
   });
+
+// code to move the selected item to the right
+
+// create a function that will move the selected element by changing the value of the 'slot' key
+function moveLeft(event) {
+  const currentPosition;
+}
+
+// select all buttons with to left arrow and add event listeners
+const leftButtons = document
+  .querySelectorAll('.toTheLeft')
+  .forEach(function (button) {
+    return button.addEventListener('click', moveLeft);
+  });
