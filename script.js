@@ -24,6 +24,23 @@ users.forEach(function (currentUser) {
   currentUnorderedList.appendChild(newUser);
 });
 
+function populate() {
+  users.forEach(function (currentUser) {
+    const userName = currentUser.name;
+    const userSlot = currentUser.slot;
+    const userSelectStatus = currentUser.selected;
+    const currentUnorderedList = document.querySelector(`#${userSlot} > ul`);
+    // create new list items
+    const newUser = document.createElement('li');
+    //add user name to each item
+    newUser.innerHTML = `${userName}`;
+    // check the selec status
+    // do i need it?
+
+    currentUnorderedList.appendChild(newUser);
+  });
+}
+
 // select all unordered lists
 // write a function that will toggle the class = 'selected' on and off for each lsit item
 // add event listener to all unordered lists
@@ -59,13 +76,15 @@ const allListItems = document
 // take the value from either index -/+ 1 and inject to the object under users array
 
 // create a function that will move the selected element by changing the value of the 'slot' key
-function moveLeft1(event) {
+const allLists = [...document.querySelectorAll('ul')];
+
+function moveLeft1() {
   const ulListFirst = document.querySelector('#unorderedList1');
   const ulListSecond = document.querySelector('#unorderedList2');
   users.forEach(function (currentUser) {
     if (currentUser.selected) {
       if (currentUser.slot === 'second') {
-        currentUser.slot === 'first';
+        currentUser.slot = 'first';
         const childrenOfListTwo = [...ulListSecond.children];
         childrenOfListTwo.forEach(function (child) {
           if (child.className === 'selected') {
@@ -78,13 +97,13 @@ function moveLeft1(event) {
   });
 }
 
-function moveLeft2(event) {
+function moveLeft2() {
   const ulListThird = document.querySelector('#unorderedList3');
   const ulListSecond = document.querySelector('#unorderedList2');
   users.forEach(function (currentUser) {
     if (currentUser.selected) {
       if (currentUser.slot === 'third') {
-        currentUser.slot === 'second';
+        currentUser.slot = 'second';
         const childrenOfListThree = [...ulListThird.children];
         childrenOfListThree.forEach(function (child) {
           if (child.className === 'selected') {
@@ -97,13 +116,13 @@ function moveLeft2(event) {
   });
 }
 
-function moveright1(event) {
+function moveright1() {
   const ulListFirst = document.querySelector('#unorderedList1');
   const ulListSecond = document.querySelector('#unorderedList2');
   users.forEach(function (currentUser) {
     if (currentUser.selected) {
       if (currentUser.slot === 'first') {
-        currentUser.slot === 'second';
+        currentUser.slot = 'second';
         const childrenOfListOne = [...ulListFirst.children];
         childrenOfListOne.forEach(function (child) {
           if (child.className === 'selected') {
@@ -116,14 +135,14 @@ function moveright1(event) {
   });
 }
 
-function moveright2(event) {
+function moveright2() {
   const ulListSecond = document.querySelector('#unorderedList2');
   const ulListThird = document.querySelector('#unorderedList3');
 
   users.forEach(function (currentUser) {
     if (currentUser.selected) {
       if (currentUser.slot === 'second') {
-        currentUser.slot === 'third';
+        currentUser.slot = 'third';
         const childrenOfListTwo = [...ulListSecond.children];
         childrenOfListTwo.forEach(function (child) {
           if (child.className === 'selected') {
@@ -136,10 +155,10 @@ function moveright2(event) {
   });
 }
 
+// v.1 select all buttons with to left arrow and add event listeners
 const leftButton1 = document.querySelector('.toTheLeft1');
 leftButton1.addEventListener('click', moveLeft1);
 
-// v.1 select all buttons with to left arrow and add event listeners
 const leftButton2 = document.querySelector('.toTheLeft2');
 leftButton2.addEventListener('click', moveLeft2);
 
@@ -160,3 +179,10 @@ rightButton2.addEventListener('click', moveright2);
 // treat each button independantly
 // second left moves only to first
 // remove child + append child
+
+// data render dom
+// modify data, re-render dom
+// innerHTML =''
+// clear + render
+// nav instead of div
+// semantic html mark up
